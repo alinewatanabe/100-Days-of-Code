@@ -2,19 +2,20 @@ import random
 
 word_list = ["ardvark", "baboon", "camel"]
 word = random.choice(word_list)
+word_length = len(word)
+
 print(f"The answer is: {word}")
 
-list = []
+display = []
 
-print(len(word)*"_")
+for _ in range(word_length):
+    display += "_"
+print(display)
 
-guess = input("\nGuess a letter: ").lower()
+guess = input("Guess a letter: ").lower()
 
-for letter in word:
+for position in range(word_length):
+    letter = word[position]
     if(letter == guess):
-        list.append(guess)
-    else:
-        list.append("_")
-           
-
-print(list)
+        display[position] = letter         
+print(display)
