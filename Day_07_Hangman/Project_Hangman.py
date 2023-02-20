@@ -4,7 +4,6 @@ word_list = ["ardvark", "baboon", "camel"]
 word = random.choice(word_list)
 print(f"The answer is: {word}")
 
-display = []
 list = []
 
 print(len(word)*"_")
