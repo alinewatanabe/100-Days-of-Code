@@ -1,43 +1,28 @@
-from Art_Project import logo
-from os import system
 import random
 
-def random_cards(lista):
-    card = random.choice(list(cards.keys()))
-    lista.append(card)
+def add_card(view_list, cards, user_list, symbol_cards):
+    value_random = random.choice(cards)
+    position = cards.index(value_random)
+    user_list.append(value_random)
+    view_list.append(symbol_cards[position])
 
-def keys_to_values(dictionary,old_list, new_list):
-    for symbol in old_list:
-        new_list.append(dictionary[symbol])
-
-def list_sum(lista):
-    S = 0
-    for number in lista:
-        S += number
-         
-    
-
-system("cls")
-cards = {}
+cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+symbol_cards = ["A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K"]
 user_list = []
-user_values_list = []
-comp_list = []
+view_user_list = []
+computer_list = []
+view_comp_list = []
 
-print(logo)
+# Add Initial User Cards
+add_card(view_user_list, cards, user_list, symbol_cards)
+add_card(view_user_list, cards, user_list, symbol_cards)
 
-for number in range(1,11):
-    cards[number] = number
+# Add Initial Computer Cards
+add_card(view_comp_list, cards, computer_list, symbol_cards)
+add_card(view_comp_list, cards, computer_list, symbol_cards)
 
-cards['J'] = 10
-cards['Q'] = 10
-cards['K'] = 10
-cards['A'] = [1, 11]
-
-random_cards(user_list)
-random_cards(user_list)
-
-keys_to_values(cards, user_list, user_values_list)
-
-user_score = list_sum(user_values_list)
-
-print(f"Your cards : {user_list}, current score: {user_score}")
+score = 0
+for number in user_list:
+    score += number
+    
+print(f"Your cards: {view_user_list}, current score: {score}")
