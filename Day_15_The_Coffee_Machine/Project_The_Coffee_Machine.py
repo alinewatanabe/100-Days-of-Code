@@ -1,43 +1,33 @@
-def resources():
-    print(f"Water: {water}ml")
-    print(f"Milk: {milk}ml")
-    print(f"Coffee: {coffee}g")
-    
-def verification(drink, water, coffee, milk):
-    if (drink == 'espresso'):
-        check_w = water - 50 > 0
-        check_c = coffee - 18 > 0
-    return (check_w and check_c)
+from Data_Base import resources, MENU
+from os import system
+from time import sleep
 
-def pay(price):
-    quarters = int(input("How many quarters? ")) * 0.25
-    dimes = int(input("How many dimes? ")) * 0.1
-    nickles = int(input("How many nickles? ")) * 0.05
-    pennies = int(input("How many pennies? ")) * 0.01
-    total = quarters + dimes + nickles + pennies
-    if(total > price):
-        print(f"Here is ${total - price} in change")
-    elif(total < price):
-        print(f"Sorry that's not enought money. Money refunded")
-    else:
-        print("Thanks! Enjoy your drink")
+MONEY = 0
+
+def check_resources(drink):
+    """Check if the resourses are sufficient to make the drink"""
+    for ingredient in MENU[drink]["ingredients"]:
+        item = MENU[drink]["ingredients"][ingredient]
+        resource = resources[ingredient]
+        if(item <= resource):
+            resources[ingredient] -= item
+        else:
+            print(f'Sorry but there is not enought {ingredient}')
+            break
         
-water = 300
-milk = 200
-coffee = 100
 
-espresso_price = 1.5
-latte_price = 2.5
-cappuccino_price = 3
+drink = "start"
 
-drink = input("What would you like? (espresso/latte/cappuccino): ").lower()
+while(drink != "end"):
+    sleep(3)
+    system("cls")
+    drink = input("What would you like? (espresso/latte/cappuccino): ").lower()
+    if(drink == "report"):
+        print(f'Water: {resources["water"]} ml')
+        print(f'Milk: {resources["milk"]} ml')
+        print(f'Coffee: {resources["coffee"]} ml')
+        print(f'Money: ${MONEY}')
 
-if(drink == "report"):
-    resources()
-
-if(drink == 'espresso'):
-    check = verification(drink, water, coffee, milk)
-    if (check == 'True'):
-        pay(espresso_price)
     else:
-        print("Resources ")
+        check_resources(drink)
+        print("Passou mesmo assim")
