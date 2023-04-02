@@ -42,7 +42,7 @@ drink = "start"
 while(drink != "off"):
     loop = True
     while(loop):
-        sleep(2)
+        sleep(4)
         system("cls")
         drink = input("What would you like? (espresso/latte/cappuccino): ").lower()
         if(drink == "report"):
