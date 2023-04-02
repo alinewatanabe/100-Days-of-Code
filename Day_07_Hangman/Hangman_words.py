@@ -23,6 +23,7 @@ word_list = [
 'buckaroo', 
 'buffalo', 
 'buffoon', 
+'burn',
 'buxom', 
 'buzzard', 
 'buzzing', 
