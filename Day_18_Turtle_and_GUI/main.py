@@ -2,9 +2,9 @@ from turtle import Turtle, Screen
 from random import random, choice
 
 # Challeng 01 - Draw a Square
-tim = Turtle()
+"""tim = Turtle()
 tim.shape("turtle")
-tim.color("aquamarine3")
+tim.color("aquamarine3")"""
 
 #for i in range(4):
 #    tim.forward(100)
@@ -43,8 +43,8 @@ for i in range(200):
     tim.setheading(choice(directions))"""
 
 # Challenge 05
-tim.speed("fast")
-ang = 10
+"""tim.speed("fastest")
+ang = 1
 
 for i in range(int(360/ang)):
     R = random()
@@ -53,7 +53,9 @@ for i in range(int(360/ang)):
     tim.pencolor(R,G,B)
     tim.circle(100)
     tim.left(ang)
+    
+    screen = Screen()
+    screen.exitonclick()"""
 
 
-screen = Screen()
-screen.exitonclick()
+
