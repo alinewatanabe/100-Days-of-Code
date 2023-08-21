@@ -1,4 +1,4 @@
-from tkinter import *
+entrfrom tkinter import *
 
 #Creating a new window and configurations
 window = Tk()
